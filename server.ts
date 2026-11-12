@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -296,7 +299,7 @@ async function startServer() {
       // Persist in MongoDB Atlas Cluster 0 or local store
       if (isDbConnected()) {
         const record = await HoroscopeRecord.create({
-          userId,
+          userId: userId || `visitor_${Date.now()}`,
           fullName,
           gender: gender || 'unspecified',
           birthDate,
@@ -312,10 +315,12 @@ async function startServer() {
             charaKarakas: calculation.charaKarakas,
             signs: calculation.signs,
             houses: calculation.houses,
+            ayanamsa: calculation.ayanamsaFormatted,
           },
           sections: lifeReport.sections,
         });
         savedId = record._id.toString();
+        console.log(`[Vishakha_ASTRA DB] Persisted horoscope record for "${fullName}" into atmajyoti_db.horoscopes (ID: ${savedId})`);
       } else {
         const memRecord = {
           _id: 'rec_' + Date.now(),

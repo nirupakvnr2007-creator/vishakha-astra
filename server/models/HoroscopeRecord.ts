@@ -58,4 +58,4 @@ const HoroscopeRecordSchema: Schema = new Schema(
 
 export const HoroscopeRecord =
   mongoose.models.HoroscopeRecord ||
-  mongoose.model<IHoroscopeRecord>('HoroscopeRecord', HoroscopeRecordSchema);
+  mongoose.model<IHoroscopeRecord>('HoroscopeRecord', HoroscopeRecordSchema, 'horoscopes');

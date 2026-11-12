@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 let isConnected = false;
 
 export async function connectToDatabase(): Promise<boolean> {
-  const uri = process.env.MONGODB_URI;
+  const uri =
+    process.env.MONGODB_URI ||
+    'mongodb+srv://nirupakvnr2007_db_user:nirupa2007@cluster0.mtfyegv.mongodb.net/atmajyoti_db?retryWrites=true&w=majority';
 
   if (!uri) {
     console.log('[Vishakha_ASTRA DB] MONGODB_URI not set. Running in local in-memory fallback store.');
