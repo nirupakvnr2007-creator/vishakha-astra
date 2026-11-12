@@ -1,0 +1,6 @@
+{
+  "name": "JyotishVeda - Vedic & Jaimini Astrology Platform",
+  "description": "Production-grade Vedic astrology and 7-Chara Karaka Jaimini horoscope platform with full-stack Node/Express REST API, React frontend, and personalized life interpretations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
